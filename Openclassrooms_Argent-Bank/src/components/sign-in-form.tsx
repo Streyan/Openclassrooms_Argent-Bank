@@ -12,7 +12,7 @@ export default function SignInForm() {
       <input type="password" id="password" />
       <input type="checkbox" id="remember-me" />
       <label htmlFor="remember-me">Remember me</label>
-      <NavLink to="/user">SignIn</NavLink>
+      <NavLink to="/user">Sign In</NavLink>
       <button type="submit">Sign In</button>
     </form>
   );
