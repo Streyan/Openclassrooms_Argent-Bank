@@ -3,7 +3,7 @@ import Cards from "./components/cards";
 
 function App() {
   return (
-    <div className="flex-1">
+    <div>
       <Banner />
       <Cards />
     </div>

@@ -6,7 +6,7 @@ interface Props {
 
 export default function Card({ image, title, text }: Props) {
   return (
-    <div className="flex-1 p-[2.5rem]">
+    <div className="flex flex-col flex-1 p-[2.5rem] items-center">
       <img
         className="w-[100px] border-[10px] border-solid border-[#00bc77] rounded-[50%] p-[1rem]"
         src={image}
