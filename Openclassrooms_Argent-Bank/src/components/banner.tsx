@@ -3,12 +3,10 @@ import BannerText from "./banner-text";
 
 export default function Banner() {
   return (
-    <div>
+    <div className="relative">
       <img src={image} alt="Image" />
       <BannerText
-        title="No fees.
-        No minimum deposit.
-        High interest rates."
+        titles={["No fees.", "No minimum deposit.", "High interest rates."]}
         text="Open a savings account with Argent Bank today!"
       />
     </div>

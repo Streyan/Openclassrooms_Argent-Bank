@@ -5,7 +5,8 @@ import icon3 from "../assets/img/icon-security.png";
 
 export default function Cards() {
   return (
-    <div>
+    <div className="flex flex-col md:flex-row">
+      <h2 className="sr-only">Features</h2>
       <Card
         image={icon1}
         title="You are our #1 priority"
