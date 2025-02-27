@@ -11,7 +11,9 @@ export default function BannerText({ titles, text }: Props) {
     >
       <h2 className="sr-only">Promoted Content</h2>
       {titles.map((title) => (
-        <p className="font-bold text-[1rem] m-[0] md:text-[1.5rem]">{title}</p>
+        <p key={title} className="font-bold text-[1rem] m-[0] md:text-[1.5rem]">
+          {title}
+        </p>
       ))}
       <p className="mb-[0] text-[0.9rem] md:text-[1.2rem]"> {text}</p>
     </div>

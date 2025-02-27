@@ -1,9 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { connect } from "../features/connexionSlice";
+import { useDispatch } from "react-redux";
 
 export default function SignInForm() {
+  const dispatch = useDispatch();
+
   function submit(formData: any) {
-    //TODO
+    dispatch(connect("hello"));
   }
+
   return (
     <div>
       <form action={submit}>
