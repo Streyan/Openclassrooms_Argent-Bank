@@ -1,42 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
+import { Connexion, Login } from "../app/types";
+import { getLoginData } from "./connexion";
 
 export interface userState {
-  token: string | undefined;
-  user:
-    | {
-        email: string;
-        password: string;
-        firstName: string;
-        lastName: string;
-        userName: string;
-      }
-    | undefined;
+  token: Connexion["token"] | undefined;
 }
 
 const initialState: userState = {
-  token: undefined,
-  user: undefined
+  token: undefined
 };
 
-export const userSlice = createSlice({
-  name: "user",
+export const connexionSlice = createSlice({
+  name: "connexion",
   initialState,
   reducers: {
-    connect: (state, action: PayloadAction<string>) => {
-      state.token = action.payload;
-      console.log(state.token);
+    connect: (state, action: PayloadAction<Login>) => {
+      console.log("avant", state.token);
+      getLoginData(action.payload).then(() => {
+        state.token = "toto";
+        console.log("après", state.token);
+      });
     },
     disconnect: (state) => {
-      console.log("toto");
       state.token = undefined;
     }
   }
 });
 
-export const { connect, disconnect } = userSlice.actions;
+export const { connect, disconnect } = connexionSlice.actions;
 
-export default userSlice.reducer;
+export default connexionSlice.reducer;
 
 export const selectToken = (state: RootState) => state.connexion.token;
