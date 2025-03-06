@@ -14,7 +14,8 @@ export async function getLoginData(login: Login) {
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     } else {
-      return response;
+      const token = await response.json();
+      return token.body.token;
     }
   } catch (error) {
     console.error(error.message);

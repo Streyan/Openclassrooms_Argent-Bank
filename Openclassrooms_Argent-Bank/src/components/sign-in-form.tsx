@@ -2,12 +2,14 @@ import { NavLink } from "react-router-dom";
 import { connect } from "../features/connexionSlice";
 import { useDispatch } from "react-redux";
 import { Login } from "../app/types";
+import { store } from "../app/store";
+
+export type AppDispatch = typeof store.dispatch;
 
 export default function SignInForm() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   function submit(formData: any) {
-    console.log(typeof formData);
     const login: Login = {
       email: formData.get("email"),
       password: formData.get("password")
