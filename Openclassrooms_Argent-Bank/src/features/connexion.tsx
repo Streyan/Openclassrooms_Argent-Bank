@@ -21,3 +21,26 @@ export async function getLoginData(login: Login) {
     console.error(error.message);
   }
 }
+
+export async function getUserData(token: string) {
+  const url = "http://localhost:3001/api/v1/user/profile";
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: token
+      }
+    });
+    if (!response.ok) {
+      console.log("response", response);
+      throw new Error(`Response status: ${response.status}`);
+    } else {
+      const user = await response.json();
+      console.log("response", user);
+      return user.body;
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}

@@ -3,6 +3,7 @@ import { connect } from "../features/connexionSlice";
 import { useDispatch } from "react-redux";
 import { Login } from "../app/types";
 import { store } from "../app/store";
+import { getUser } from "../features/userSlice";
 
 export type AppDispatch = typeof store.dispatch;
 
@@ -14,7 +15,9 @@ export default function SignInForm() {
       email: formData.get("email"),
       password: formData.get("password")
     };
-    dispatch(connect(login));
+    dispatch(connect(login)).then((action) => {
+      dispatch(getUser(action.payload));
+    });
   }
 
   return (

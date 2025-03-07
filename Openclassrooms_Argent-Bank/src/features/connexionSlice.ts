@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../app/store";
 import { Connexion, Login } from "../app/types";
 import { getLoginData } from "./connexion";
-
 export interface userState {
   token: Connexion["token"] | undefined;
 }
@@ -15,6 +14,7 @@ export const connect = createAsyncThunk(
   "connexion/connect",
   async (login: Login) => {
     const response = await getLoginData(login);
+
     return response;
   }
 );
