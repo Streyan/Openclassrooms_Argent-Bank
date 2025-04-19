@@ -1,7 +1,20 @@
+import { useSelector } from "react-redux";
 import UserCard from "../components/user-card";
 import UserTitle from "../components/user-title";
+import { selectUser } from "../features/userSlice";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function User() {
+  const navigate = useNavigate();
+  const user = useSelector(selectUser);
+
+  useEffect(() => {
+    if (user == null) {
+      navigate("/signin");
+    }
+  });
+
   return (
     <div className="bg-[#12002b] h-auto w-full">
       <UserTitle />

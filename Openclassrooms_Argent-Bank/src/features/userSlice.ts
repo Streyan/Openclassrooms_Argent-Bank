@@ -31,6 +31,15 @@ export const userSlice = createSlice({
       if (state.user != undefined) {
         state.user.userName = action.payload;
       }
+    },
+    disconnectUser: (state) => {
+      if (state == undefined) {
+        return;
+      }
+      if (state.user == undefined) {
+        return;
+      }
+      state.user = undefined;
     }
   },
   extraReducers: (builder) => {
@@ -40,7 +49,7 @@ export const userSlice = createSlice({
   }
 });
 
-export const { updateUsername } = userSlice.actions;
+export const { updateUsername, disconnectUser } = userSlice.actions;
 
 export default userSlice.reducer;
 

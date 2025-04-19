@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { connect } from "../features/connexionSlice";
 import { useDispatch } from "react-redux";
 import { Login } from "../app/types";
@@ -6,8 +6,10 @@ import { store } from "../app/store";
 import { getUser } from "../features/userSlice";
 
 export type AppDispatch = typeof store.dispatch;
+let error: string = "";
 
 export default function SignInForm() {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
   function submit(formData: any) {
@@ -15,8 +17,10 @@ export default function SignInForm() {
       email: formData.get("email"),
       password: formData.get("password")
     };
+
     dispatch(connect(login)).then((action) => {
       dispatch(getUser(action.payload));
+      navigate("/user");
     });
   }
 
@@ -51,11 +55,8 @@ export default function SignInForm() {
             Remember me
           </label>
         </div>
-        <NavLink to="/user">Sign In</NavLink>
-        <button
-          className="block w-full p-[8px] text-[1.1rem] text-bold mt-[1rem] border-[#00bc77] bg-[#00bc77] text-[#fff]"
-          type="submit"
-        >
+        <div id="signin-errors">{error}</div>
+        <button className="block w-full p-[8px] text-[1.1rem] text-bold mt-[1rem] border-[#00bc77] bg-[#00bc77] text-[#fff]">
           Sign In
         </button>
       </form>
