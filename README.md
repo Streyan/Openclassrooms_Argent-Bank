@@ -1,6 +1,8 @@
 # Projet 10 de la formation intégrateur web de Openclassrooms : Argent-Bank
 # Implémentez le front-end d'une application bancaire avec React
 
+![image](https://github.com/user-attachments/assets/533011bf-aac2-4e59-a486-513435b3425c)
+
 Dans ce projet, vous travaillerez sur le développement front-end d’une application bancaire en utilisant React et Redux pour créer une expérience utilisateur dynamique et réactive.
 Votre mission principale sera d'intégrer le front-end avec le back-end via des appels API.
 Vous écrirez des appels à l'API REST pour connecter les deux parties de l'application, assurant une communication fluide entre le client et le serveur.
